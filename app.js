@@ -1,6 +1,6 @@
 
 setInterval(() =>{
-    let hours = document.getElementById('hours');
+let hours = document.getElementById('hours');
 let minutes = document.getElementById('minutes');
 let seconds = document.getElementById('seconds');
 let ampm = document.getElementById('ampm');

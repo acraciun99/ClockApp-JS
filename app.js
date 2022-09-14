@@ -1,22 +1,27 @@
-function displayTime(){
-    var dateTime = new Date();
-    var hrs = dateTime.getHours();
-    var min = dateTime.getMinutes();
-    var sec = dateTime.getSeconds();
-    var session = document.getElementById('session');
+// digital clock
+function currentTime(){
+    var date = new Date();
+    
+    var hour = date.getHours()
+    var min = date.getMinutes()
+    var sec = date.getSeconds()
 
-    if(hrs >= 12){
-        session.innerHTML = 'PM';
-    }else{
-        session.innerHTML = 'AM';
-    }
+    hour = updateTime(hour)
+    min = updateTime(min)
+    sec = updateTime(sec)
 
-    if(hrs> 12){
-        hrs = hrs - 12;
-    }
+    document.getElementById("d-clock").innerText = hour + " : " + min + " : " + sec;
 
-    document.getElementById('hours').innerHTML = hrs;
-    document.getElementById('minutes').innerHTML = min;
-    document.getElementById('seconds').innerHTML = sec;
+    var t = setTimeout(function(){
+        currentTime()
+    },1000)
 }
-setInterval(displayTime, 10);
+function updateTime(k){
+    if(k < 10){
+        return "0" + k;
+    }else{
+        return k
+    }
+}
+currentTime();
+
